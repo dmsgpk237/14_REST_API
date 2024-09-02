@@ -1,15 +1,20 @@
-package com.ohgiraffers.restapi.section01.response;
+package com.ohgiraffers.restapi.section02.responseEntity;
 
-public class Message {
+import java.util.Map;
+
+public class ResponseMessage {
+
     private int httpStatusCode;
     private String message;
+    private Map<String, Object> results;
 
-    public Message() {
+    public ResponseMessage() {
     }
 
-    public Message(int httpStatusCode, String message) {
+    public ResponseMessage(int httpStatusCode, String message, Map<String, Object> results) {
         this.httpStatusCode = httpStatusCode;
         this.message = message;
+        this.results = results;
     }
 
     public int getHttpStatusCode() {
@@ -28,11 +33,21 @@ public class Message {
         this.message = message;
     }
 
+    public Map<String, Object> getResults() {
+        return results;
+    }
+
+    public void setResults(Map<String, Object> results) {
+        this.results = results;
+    }
+
     @Override
     public String toString() {
-        return "Message{" +
+        return "ResponseMessage{" +
                 "httpStatusCode=" + httpStatusCode +
                 ", message='" + message + '\'' +
+                ", results=" + results +
                 '}';
     }
+
 }
